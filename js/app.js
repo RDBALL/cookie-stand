@@ -135,20 +135,50 @@ let Dubai = {
 Dubai.render();
 console.log(Dubai);
 
+// Paris Section
+
+let Paris = {
+  location: 'Paris',
+  min: 20,
+  max: 38,
+  Avg: 2.3,
+  cookiesArr: [],
+  totalCookies: 0,
+  randomCustNumber: function () {
+    return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
+  },
+  cookiesPerHour: function () {
+
+    for (let i = 0; i < hours.length; i++) {
+      let cookies = (Math.ceil(this.Avg * this.randomCustNumber()))
+      this.cookiesArr.push(cookies);
+      this.totalCookies += cookies
+    }
+  },
+  render: function () {
+    this.cookiesPerHour();
+    let storeName = document.createElement('h3');
+    storeName.textContent = this.location; 
+    cookieStore.appendChild(storeName);
+    let ulElem = document.createElement('ul');
+    cookieStore.appendChild(ulElem);
+
+    for (let i = 0; i < this.cookiesArr.length; i++) {
+      let liElem = document.createElement('li');
+      liElem.textContent = hours[i] + ': ' + this.cookiesArr[i] + ' cookies';
+      ulElem.appendChild(liElem);
+      console.log('total: ', this.totalCookies);
+    }
+    let totalElm = document.createElement('li');
+    totalElm.textContent = `total: ${this.totalCookies} cookies`;
+    ulElem.appendChild(totalElm);
+  }
+};
+
+Paris.render();
+console.log(Paris);
 
 
-
-
-
-
-
-
-// let Paris = {
-//  location: 'Paris',
-//   min: 20,
-//   max: 38,
-//   Avg: 2.3,
-// }
 // let Lima = {
 //   location: 'Paris',
 //   min: 2,
