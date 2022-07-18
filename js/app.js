@@ -2,9 +2,7 @@
 
 let hours = ['6am','7am', '8am','9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
-let cookieStore = document.getElementById('Seattle-total');
-
-console.log(cookieStore);
+// let cookieStore = document.getElementById('Seattle-total');
 
 // Seattle Section
 
@@ -27,6 +25,7 @@ let Seattle = {
     }
   },
   render: function () {
+    let cookieStore = document.getElementById('Seattle-total');
     this.cookiesPerHour();
     let storeName = document.createElement('h3');
     storeName.textContent = this.location;
@@ -70,6 +69,7 @@ let Tokyo = {
     }
   },
   render: function () {
+    let cookieStore = document.getElementById('Tokyo-total');
     this.cookiesPerHour();
     let storeName = document.createElement('h3');
     storeName.textContent = this.location;
@@ -113,6 +113,7 @@ let Dubai = {
     }
   },
   render: function () {
+    let cookieStore = document.getElementById('Dubai-total');
     this.cookiesPerHour();
     let storeName = document.createElement('h3');
     storeName.textContent = this.location;
@@ -156,6 +157,7 @@ let Paris = {
     }
   },
   render: function () {
+    let cookieStore = document.getElementById('Paris-total');
     this.cookiesPerHour();
     let storeName = document.createElement('h3');
     storeName.textContent = this.location;
@@ -199,6 +201,7 @@ let Lima = {
     }
   },
   render: function () {
+    let cookieStore = document.getElementById('Lima-total');
     this.cookiesPerHour();
     let storeName = document.createElement('h3');
     storeName.textContent = this.location;
