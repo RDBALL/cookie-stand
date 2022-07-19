@@ -189,7 +189,6 @@
   }
 }
 
-/* Main content */
 
 .main {
   background-color: #141414;
@@ -197,16 +196,19 @@
 
 .mainContainer{
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
   justify-self: center;
-  margin: 0 auto;
-  height: 90vh;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100vh;
   background-color: #141414;
   z-index: 1;
   width: 100%;
   max-width: 1300px;
-  padding: 0 50px;
+  padding: 0 0px;
+  /* this border is just for visual ref */
+  border: 5px solid; 
+  /* delete border when finished */
+  text-align: center;
 }
 
 .mainContent h1 {
