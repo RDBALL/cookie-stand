@@ -6,7 +6,7 @@ let hours = ['6am','7am', '8am','9am', '10am', '11am', '12pm', '1pm', '2pm', '3p
 
 let locationTotal = [];
 
-// Starting to create constructor
+// Starting with a constructor
 
 function StoreLocation(location, min, max, avg) {
   this.location = location;
@@ -33,6 +33,8 @@ StoreLocation.prototype.cookiesPerHour = function(){
     this.totalCookies += cookies;
   }
 };
+
+// Identifying data to add to table
 
 StoreLocation.prototype.render = function() {
   this.cookiesPerHour();
@@ -96,7 +98,7 @@ renderTables();
 
 
 
-
+// Class 06 code that was refactored to above ^^^^ code
 
 // let Seattle = {
 //   location: 'Seattle',
