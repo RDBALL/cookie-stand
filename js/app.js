@@ -12,7 +12,7 @@ function StoreLocation(location, min, max, avg) {
   this.location = location;
   this.min = min;
   this.max = max;
-  this.ave = avg;
+  this.avg = avg;
   this.cookiesArr = [];
   this.totalCookies = 0;
 
