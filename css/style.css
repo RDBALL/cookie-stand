@@ -46,8 +46,8 @@
   font-size: 2rem;
 }
 
-.faGem{
-  margin-right: 0.5rem;
+.fa-solid {
+  padding-right: 10px;
 }
 
 .navbarMenu {
@@ -192,6 +192,12 @@
 
 .main {
   background-color: #141414;
+}
+
+.bgImg {
+  position: relative;
+  width: 100%;
+
 }
 
 .mainContainer{
