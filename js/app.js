@@ -6,6 +6,51 @@ let hours = ['6am','7am', '8am','9am', '10am', '11am', '12pm', '1pm', '2pm', '3p
 
 // Seattle Section
 
+
+// Starting to create constructor
+
+let locationTotal = [];
+
+function StoreLocation(location, min, max, avg) {
+  this.location = location;
+  this.min = min;
+  this.max = max;
+  this.ave = avg;
+  this.cookiesArr = [];
+  this.totalCookies = 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 let Seattle = {
   location: 'Seattle',
   min: 23,
