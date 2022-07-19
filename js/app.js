@@ -54,7 +54,6 @@ StoreLocation.prototype.render = function() {
   row1.appendChild(totalElm);
 };
 
-
 function header () {
   let tableHead = document.createElement ('thead');
   locationTable.appendChild(tableHead);
