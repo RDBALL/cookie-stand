@@ -182,14 +182,8 @@
   background-color: #141414;
 }
 
-.salmonLogo {
-  display: flex;
-  max-width: 100%;
-}
-
 .mainContainer{
-  display: flex;
-  background-image: url("../images/family.jpg");
+  background-image: url("../images/ppmkt.jpg");
   background-repeat: no-repeat;
   background-position: center;
 margin: auto;
@@ -204,49 +198,64 @@ margin: auto;
   text-align: center;
 }
 
-.mainContent h1 {
-  margin-top: 250px;
-  font-size: 4rem;
-  color: white;
-  background-color: #ff8177;
-  background-image: linear-gradient(to top, #ff0844, #ffb199 100%);
-  background-size: 100%;
-  font-family: 'lobster';
-  border-radius: 25px;
-}
-
-.mainContent h2 {
-  font-size: 4rem;
-  background-color: #ff8177;
-  background-image: linear-gradient(to top, #b721ff, #21d4fd 100%);
-  background-size: 100%;
-  }
-  
-.mainContent p {
-  margin-top: 1re;
-  font-size: 2ren;
-  font-weight: 700;
+h1 {
+  font-size: 3rem;
+  background-color: #490e1b;
+  display: flex;
+  justify-content: center;
   color: #fff;
+  margin: 30px 30px;
 }
 
-.stockImages:nth-child(1):nth-child(2):nth-child(3) {
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+#table {
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.stockImages:nth-child(4):nth-child(5) {
-  width: 100vw;
-  display: flex;
-
-  gap: 16px;
+#table thead tr td{
+  font-size: 1em;
+  color: white;
+  padding: .5em .5em;
+  letter-spacing: .35px;
+  font-family:'Barlow', sans-serif;
+  font-weight: 600;
+  background-color: #066474;
+  border: 1px solid black;
 }
-.mainImgContainer {
+
+#table td:nth-child(1) {
+  font-size: 1em;
+  background-color: #490e1b;
+  color: white;
+  border: 1px solid black;
+  padding: .5em .5em;
+  font-weight: 400;
+  letter-spacing: .35px;
+  font-family:'Barlow', sans-serif;
+  font-weight: 600;
+}
+
+#table td:nth-child(16) {
+  font-size: 1em;
+  background-color: #066474;
+  color: white;
+  border: 1px solid black;
+  padding: .5em .5em;
+  font-weight: 400;
+  letter-spacing: .35px;
+  font-family:'Barlow', sans-serif;
+  font-weight: 600;
+}
+
+td:not(:first-child):not(:nth-child(16)) {
+  background-color: rgb(201, 201, 253);
+  font-size: 1em;
+  font-family:'Barlow', sans-serif;
+  font-weight: bold;
   text-align: center;
+  border: 1px solid;
 }
 
-#mainImg {
-  height: 80%;
-  width: 80%;
+#table tr:nth-child(even) {
+  background-color: rgb(0, 0, 0);
 }
