@@ -8,7 +8,7 @@ let locationTotal = [];
 
 // Starting with a constructor
 
-function StoreLocation(location, min, max, avg) {
+function Store(location, min, max, avg) {
   this.location = location;
   this.min = min;
   this.max = max;
@@ -21,11 +21,11 @@ function StoreLocation(location, min, max, avg) {
 
 // Creating Prototypes
 
-StoreLocation.prototype.randomCustNumber = function() {
+Store.prototype.randomCustNumber = function() {
   return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
 };
 
-StoreLocation.prototype.cookiesPerHour = function(){
+Store.prototype.cookiesPerHour = function(){
   for (let i = 0; i < hours.length; i ++) {
     let cookies = (Math.ceil(this.avg * this.randomCustNumber()));
     console.log('cookies', cookies);
@@ -36,7 +36,7 @@ StoreLocation.prototype.cookiesPerHour = function(){
 
 // Identifying data to add to table
 
-StoreLocation.prototype.render = function() {
+Store.prototype.render = function() {
   this.cookiesPerHour();
   let row1 = document.createElement('tr');
   locationTable.appendChild(row1);
@@ -78,13 +78,43 @@ function header () {
 
 header();
 
+// Footer render
+function totalSalesFooter (){
+  let footerElm = document.createElement('tfoot');
+  locationTable.appendChild(footerElm);
+
+  let newRow = document.createElement('tr');
+  footerElm.appendChild(newRow);
+
+  let tdElem = document.createElement('td');
+  tdElem.textContent = 'Totals';
+  newRow.appendChild(tdElem);
+
+  let grandTotal = 0;
+  for (let i = 0; i < hours.length; i++){
+    let hourTotal = 0;
+    for (let j = 0; j < locationTotal.length; j++){
+      hourTotal += locationTotal[j].cookiesArr[i];
+      grandTotal += locationTotal[j].cookiesArr[i];
+    }
+    let saleData = document.createElement('td');
+    saleData.textContent = `${hourTotal}`;
+    newRow.appendChild(saleData);
+  }
+  let totalSaleData = document.createElement('td');
+  totalSaleData.textContent = grandTotal;
+  newRow.appendChild(totalSaleData);
+}
+
+totalSalesFooter();
+
 // Store locations
 
-new StoreLocation('Seattle', 23, 65, 6.3);
-new StoreLocation('Tokyo', 3, 24, 1.2);
-new StoreLocation('Dubai', 11, 38, 3.7);
-new StoreLocation('Paris', 20, 38, 2.3);
-new StoreLocation('Lima', 2, 16, 4.6);
+new Store('Seattle', 23, 65, 6.3);
+new Store('Tokyo', 3, 24, 1.2);
+new Store('Dubai', 11, 38, 3.7);
+new Store('Paris', 20, 38, 2.3);
+new Store('Lima', 2, 16, 4.6);
 
 // Render Tables
 
