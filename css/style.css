@@ -194,13 +194,14 @@
   background-color: #141414;
 }
 
-.bgImg {
+.salmonLogo {
   position: relative;
-  width: 100%;
-
+  vertical-align: middle;
+  max-width: 100%;
 }
 
 .mainContainer{
+  background-image: url("../images/ppmkt.jpg");
   display: grid;
   justify-self: center;
   margin-left: auto;
@@ -222,10 +223,10 @@
   background-color: #ff8177;
   background-image: linear-gradient(to top, #ff0844, #ffb199 100%);
   background-size: 100%;
-  -webkit-background-clip: text;
+  /* -webkit-background-clip: text;
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
+  -moz-text-fill-color: transparent; */
 }
 
 .mainContent h2 {
@@ -233,10 +234,10 @@
   background-color: #ff8177;
   background-image: linear-gradient(to top, #b721ff, #21d4fd 100%);
   background-size: 100%;
-  -webkit-background-clip: text;
+  /* -webkit-background-clip: text;
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
+  -moz-text-fill-color: transparent; */
   }
   
 .mainContent p {
