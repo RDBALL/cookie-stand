@@ -43,12 +43,31 @@
           <section id="Paris-total"></section>
           <section id="Lima-total"></section>
         </div>
+        <form id="myform">
+          <fieldset>
+            <legend>Fieldset Context</legend>
+            <!-- Inputs and labes, two options option one input and label as siblings this tetheres everything together -->
+            <label for="firstName">Name:</label>
+            <input id="firstName" type="text" name="firstName">
+            <!-- this will be event.target.firstName.value === whatever user enters-->
+
+
+            <!-- option 2 is nest input in labe; / name property important for event listener-->
+            <label>Age:
+              <input type="text" name="Age">
+              <!-- event.target.Age.value -->
+              
+              <label for="password">Password:</label>
+              <button type="click" >Submit</button>
+              <input id="password" type="password" name="password">
+            </label>
+          </fieldset>
+        </form>
   <header>
   </header>
   <main>
   </main>
   <footer></footer>
   <script src="js/app.js"></script>
-  <script src="js/mobileMenu.js"></script>
 </body>
 </html>
