@@ -12,24 +12,26 @@
   <link rel="stylesheet" href="./css/sales.css">
 </head>
 <body>
-  <nav class="navbar">
-    <div class="navbarContainer">
-      <ul class="navbarMenu">
-        <li class="navbarItem">
-          <a href="./index.html" class="navbarLinks">Home</a>
-        </li>
-        <li class="navbarItem">
-          <a href="./about.html" class="navbarLinks">About</a>
-        </li>
-        <li class="navbarItem">
-          <a href="../locations.html" class="navbarLinks">Locations</a>
-        </li>
-        <li class="navbarBtn">
-          <a href="./sales.html" class="button">Sales</a>
-        </li>
-        </ul>
-      </div>
-    </nav>
+  <header>
+    <nav class="navbar">
+      <div class="navbarContainer">
+        <ul class="navbarMenu">
+          <li class="navbarItem">
+            <a href="./index.html" class="navbarLinks">Home</a>
+          </li>
+          <li class="navbarItem">
+            <a href="./about.html" class="navbarLinks">About</a>
+          </li>
+          <li class="navbarItem">
+            <a href="../locations.html" class="navbarLinks">Locations</a>
+          </li>
+          <li class="navbarBtn">
+            <a href="./sales.html" class="button">Sales</a>
+          </li>
+          </ul>
+        </div>
+      </nav>
+  </header>
     <div class="main">
       <div class="mainContainer">
         <div class="mainContent">
@@ -37,18 +39,30 @@
           <section>
             <table id="table"></table>
           </section>
-          <section id="Seattle-total"></section>
-          <section id="Tokyo-total"></section>
-          <section id="Dubai-total"></section>
-          <section id="Paris-total"></section>
-          <section id="Lima-total"></section>
         </div>
-  <header>
-  </header>
+        <form id="my-form">
+          <fieldset>
+            <legend>Open a new Franchise</legend>
+            <label for="locationName">New Location</label>
+            <input id="locationName" type="text" name="locationName">
+            </fieldset> 
+            <fieldset>  
+              <label for="minCust">Min Customers</label>
+              <input id="minCust" type="number" name="minCust">
+    
+              <label for="maxCust">Max Customers</label>
+              <input id="maxCust" type="number" name="maxCust">
+
+              <label for="avgCookie">Avg Cookie per Customer</label>
+              <input id="avgCookie" type="number" name="avgCookie">
+            </fieldset>
+            </label>
+          </fieldset>
+          <button type="submit">Submit</button>
+        </form>
   <main>
   </main>
   <footer></footer>
   <script src="js/app.js"></script>
-  <script src="js/mobileMenu.js"></script>
 </body>
 </html>

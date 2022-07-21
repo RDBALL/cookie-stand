@@ -121,7 +121,7 @@
 .merchandise {
 display: flex;
 flex-direction: row;
-flex-wrap: nowrap;
+flex-wrap: wrap;
 justify-content: space-around;
 height: auto;
 background-color: rgba(0, 0, 0, 0.5);
