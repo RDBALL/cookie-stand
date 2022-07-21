@@ -70,67 +70,39 @@
   transition: all .3s ease;
 }
 
-.main {
+body {
   background-color: #272931;
 }
 
-.heroPhoto {
-  display: flex;
-  justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-}
-
 .mainContainer{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
+  height: 100vh;
   z-index: 1;
   width: 100%;
   max-width: 960px;
+
   text-align: center;
 }
 
-.mainContent h1 {
+.locations {
   margin-top: 50px;
-  font-size: 4rem;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.5);
-  background-size: 100%;
-  font-family: 'lobster';
-  border-radius: 25px 25px 0 0;
+  display: block;
 }
-
-.tagLines {
-  font-size: 3rem;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 0 0 25px 25px;
-  font-weight: 700;
+.storeLocation {
+  flex: 0 0 auto;
+  font-family: Arial, Helvetica, sans-serif;
   color: #fff;
+  font-size: 2rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: ;
 }
 
-.stockImages {
+h1 {
+  font-size: 3rem;
+  background-color: #490e1b;
   display: flex;
-  justify-content: space-evenly;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  float: left;
+  justify-content: center;
+  color: #fff;
+  margin: 30px 30px;
 }
 
-.merchandise {
-display: flex;
-flex-direction: row;
-flex-wrap: nowrap;
-justify-content: space-around;
-height: auto;
-background-color: rgba(0, 0, 0, 0.5);
-
-}
-
-p {
-  color: white;
-  font-size: 1.5rem;
-  text-align: left;
-  padding: 2rem;
-}

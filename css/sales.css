@@ -11,32 +11,7 @@
   top: 0;
   z-index: 999;
   font-family: 'Lobster';
-}
-
-.navbarContainer {
-  display: flex;
-  justify-content: space-between;
-  height: 80px;
-  z-index: 1;
-  width: 100%;
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 0 50px;
-}
-
-#navbarLogo {
-  background-color: #ff8177;
-  background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 2rem;
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
 }
 
 .navbarMenu {
@@ -95,106 +70,17 @@
   transition: all .3s ease;
 }
 
-@media screen and (max-width: 960px) {
-  .navbarContainer{
-    display: flex;
-    justify-content: space-between;
-    height: 80px;
-    z-index: 1;
-    width: 100%;
-    max-width: 1300px;
-    padding: 0;
-  }
-  .navbarMenu {
-    display: grid;
-    grid-template-columns: auto;
-    margin: 0;
-    width: 100%;
-    position: absolute;
-    top: -1000px;
-    opacity: 0;
-    transition: all .5s ease;
-    height: 50vh;
-    z-index: -1;
-    background: #131313;
-  }
-  .navbarMenu.active {
-    background: #131313;
-    top: 100%;
-    opacity: 1;
-    transition: all .5s ease;
-    z-index: 99;
-    height: 50vh;
-    font-size: 1.6rem;
-  }
-  #navbarLogo {
-    padding-left: 25px;
-  }
-  .navbarToggle .bar {
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    transition: all .3s ease-in-out;
-    background: #fff;
-  }
-  .navbarItem {
-    width: 100%;
-  }
-  .navbarLinks {
-    text-align: center;
-    padding: 2rem;
-    width: 100%;
-    display: table;
-  }
-  #mobileMenu {
-    position: absolute;
-    top: 20%;
-    right: 5%;
-    transform: translate(5%, 20%);
-  }
-  .navbarBtn {
-    padding-bottom: 2rem;
-  }
-  .button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    height: 80px;
-    margin: 0%;
-  }
-  .navbarToggle .bar {
-    display: block;
-    cursor: pointer;
-  }
-  #mobileMenu.isActive .bar:nth-child(2) {
-    opacity: 0;
-  }
-  #mobileMenu.isActive .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);  
-  }
-  #mobileMenu.isActive .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);  
-  }
-}
-
-.main {
-  background-color: #141414;
+body {
+  background-color: #272931;
 }
 
 .mainContainer{
-  background-image: url("../images/ppmkt.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-margin: auto;
+  margin: auto;
   height: 100vh;
-  background-color: #141414;
   z-index: 1;
   width: 100%;
   max-width: 960px;
-  /* this border is just for visual ref */
-  border: 5px solid; 
-  /* delete border when finished */
+
   text-align: center;
 }
 
@@ -208,6 +94,7 @@ h1 {
 }
 
 #table {
+  margin-top: 100px;
   margin-left: auto;
   margin-right: auto;
 }
