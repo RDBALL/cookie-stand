@@ -1,9 +1,13 @@
 'use strict';
 
 let locationTable = document.getElementById('table');
+let locationForm = document.getElementById('my-form');
+
+
+let tableElem = document.createElement('table');
+locationTable.appendChild(tableElem);
 
 let hours = ['6am','7am', '8am','9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
-
 let locationTotal = [];
 
 //------------Refactored Constructor------------
@@ -36,6 +40,31 @@ Store.prototype.cookiesPerHour = function(){
   }
 };
 
+//------------New Franchise Submission event------------
+
+function handleSubmit(event){
+  event.preventDefault();
+
+  let locationName = event.target.locationName.value;
+  let min = +event.target.min.value;
+  let max = +event.target.max.value;
+  let avg = +event.target.avg.value;
+
+  let newLocation = new Store(locationName, min, max, avg);
+
+  //------------Delete Footer------------
+  locationTable.deleteRow(-1);
+  //------------Call for new Store------------
+  newLocation.randomCustNumber();
+  newLocation.render();
+  //------------Recreate Footer------------
+  totalSalesFooter();
+}
+
+//------------Adding Submit Event Listener------------
+locationForm.addEventListener('submit', handleSubmit);
+
+
 //------------Creating Table Header------------
 
 function header () {
@@ -47,7 +76,7 @@ function header () {
 
   let tdElem = document.createElement('td');
   row.appendChild(tdElem);
-  
+
   for (let i = 0; i < hours.length; i++){
     let td = document.createElement('td');
     td.textContent = hours[i];
@@ -80,23 +109,21 @@ Store.prototype.render = function() {
   row1.appendChild(totalElm);
 };
 
-
-
 //------------Creating Table Footer------------
 
 function totalSalesFooter (){
   let footerElm = document.createElement('tfoot');
   locationTable.appendChild(footerElm);
-  
+
   let newRow = document.createElement('tr');
   footerElm.appendChild(newRow);
-  
+
   let tdElem = document.createElement('td');
   tdElem.textContent = 'Totals';
   newRow.appendChild(tdElem);
-  
+
   let grandTotal = 0;
-  
+
   for (let i = 0; i < hours.length; i++){
     let hourTotal = 0;
     for (let j = 0; j < locationTotal.length; j++){
@@ -111,6 +138,9 @@ function totalSalesFooter (){
   totalSaleData.textContent = grandTotal;
   newRow.appendChild(totalSaleData);
 }
+
+//------------Rendering Tables------------
+
 function renderTables() {
   for (let i = 0; i < locationTotal.length; i++) {
     locationTotal[i].render();
