@@ -1,162 +1,165 @@
 'use strict';
 
-let locationTable = document.getElementById('table');
+//------------DOM Window------------
+let locationSection = document.getElementById('location-profiles');
+console.log(locationSection);
+
+let locationsTable = document.getElementById('table');
+console.log(locationsTable);
+
 let locationForm = document.getElementById('my-form');
 
 
+//------------Declaring Table------------
+
 let tableElem = document.createElement('table');
-locationTable.appendChild(tableElem);
+locationsTable.appendChild(tableElem);
 
-let hours = ['6am','7am', '8am','9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
-let locationTotal = [];
+//------------Store Hours------------
+let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
-//------------Refactored Constructor------------
 
-function Store(location, min, max, avg) {
+// ------------Random Customer int Generator------------
+// in class-demo
+function randomCust(min, max){
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+//------------Constructor Refactor------------
+let cookieLocations = [];
+
+function Store(location, minCust, maxCust, avgCookie){
   this.location = location;
-  this.min = min;
-  this.max = max;
-  this.avg = avg;
-  this.cookiesArr = [];
-  this.totalCookies = 0;
-  this.hourlyTotalCookies = [];
+  this.minCust = minCust;
+  this.maxCust = maxCust;
+  this.avgCookie = avgCookie;
+  this.customers = 0;
+  this.results = [];
 
-  locationTotal.push(this);
+  cookieLocations.push(this);
 }
 
-//------------Methods to Prototypes------------
-
-Store.prototype.randomCustNumber = function() {
-  return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
-};
-
-Store.prototype.cookiesPerHour = function(){
-  this.randomCustNumber();
-  for (let i = 0; i < hours.length; i ++) {
-    let cookies = (Math.ceil(this.avg * this.randomCustNumber()));
-    console.log('cookies', cookies);
-    this.cookiesArr.push(cookies);
-    this.totalCookies += cookies;
-  }
-};
-
-//------------New Franchise Submission event------------
-
-function handleSubmit(event){
-  event.preventDefault();
-
-  let locationName = event.target.locationName.value;
-  let min = +event.target.min.value;
-  let max = +event.target.max.value;
-  let avg = +event.target.avg.value;
-
-  let newLocation = new Store(locationName, min, max, avg);
-
-  //------------Delete Footer------------
-  locationTable.deleteRow(-1);
-  //------------Call for new Store------------
-  newLocation.randomCustNumber();
-  newLocation.render();
-  //------------Recreate Footer------------
-  totalSalesFooter();
-}
-
-//------------Adding Submit Event Listener------------
-locationForm.addEventListener('submit', handleSubmit);
-
-
-//------------Creating Table Header------------
-
-function header () {
-  let tableHead = document.createElement ('thead');
-  locationTable.appendChild(tableHead);
-
-  let row = document.createElement('tr');
-  tableHead.appendChild(row);
-
-  let tdElem = document.createElement('td');
-  row.appendChild(tdElem);
-
-  for (let i = 0; i < hours.length; i++){
-    let td = document.createElement('td');
-    td.textContent = hours[i];
-    row.appendChild(td);
-  }
-  let total = document.createElement('td');
-  total.textContent = 'Total';
-  row.appendChild(total);
-}
-
-//------------Creating Table Data------------
-
-Store.prototype.render = function() {
-  this.cookiesPerHour();
-  let row1 = document.createElement('tr');
-  locationTable.appendChild(row1);
-
-  let tdElem = document.createElement('td');
-  tdElem.textContent = this.location;
-  row1.appendChild (tdElem);
-
-  for (let i =0; i < this.cookiesArr.length; i++) {
-    let td = document.createElement('td');
-    td.textContent = this.cookiesArr[i];
-    row1.appendChild(td);
-    console.log('total: ', this.totalCookies);
-  }
-  let totalElm = document.createElement('td');
-  totalElm.textContent = this.totalCookies;
-  row1.appendChild(totalElm);
-};
-
-//------------Creating Table Footer------------
-
-function totalSalesFooter (){
-  let footerElm = document.createElement('tfoot');
-  locationTable.appendChild(footerElm);
-
-  let newRow = document.createElement('tr');
-  footerElm.appendChild(newRow);
-
-  let tdElem = document.createElement('td');
-  tdElem.textContent = 'Totals';
-  newRow.appendChild(tdElem);
-
-  let grandTotal = 0;
-
-  for (let i = 0; i < hours.length; i++){
-    let hourTotal = 0;
-    for (let j = 0; j < locationTotal.length; j++){
-      hourTotal += locationTotal[j].cookiesArr[i];
-      grandTotal += locationTotal[j].cookiesArr[i];
-    }
-    let saleData = document.createElement('td');
-    saleData.textContent = `${hourTotal}`;
-    newRow.appendChild(saleData);
-  }
-  let totalSaleData = document.createElement('td');
-  totalSaleData.textContent = grandTotal;
-  newRow.appendChild(totalSaleData);
-}
-
-//------------Rendering Tables------------
-
-function renderTables() {
-  for (let i = 0; i < locationTotal.length; i++) {
-    locationTotal[i].render();
-  }
-}
-
-// ------------Initiate Store Locations------------
-
+//------------Initiate Store Locations------------
 new Store('Seattle', 23, 65, 6.3);
 new Store('Tokyo', 3, 24, 1.2);
 new Store('Dubai', 11, 38, 3.7);
 new Store('Paris', 20, 38, 2.3);
 new Store('Lima', 2, 16, 4.6);
 
+// ------------Methods to prototypes------------
+Store.prototype.getCust = function(){
+  this.customers = `${randomCust(this.minCust, this.maxCust)}`;
+};
 
-//------------Calling All Functions------------
-header();
-renderTables();
-totalSalesFooter();
+Store.prototype.render = function(){
+  let totCookies = 0;
+
+  let newRow = document.createElement('tr');
+  tableElem.appendChild(newRow);
+
+  let rowHeading = document.createElement('th');
+  rowHeading.textContent = this.location;
+  newRow.appendChild(rowHeading);
+
+  for(let i = 0; i< hours.length; i++){
+    let newElement = document.createElement('td');
+    this.getCust();
+    let hourCookies = this.customers * this.avgCookie;
+    totCookies += hourCookies;
+    newElement.textContent = `${Math.round(hourCookies)}`;
+    newRow.appendChild(newElement);
+    this.results.push(Math.round(hourCookies));
+  }
+
+  let newElement = document.createElement('td');
+  newElement.textContent = Math.round(totCookies);
+  newRow.appendChild(newElement);
+
+};
+
+//------------Input submission callback------------
+// https://www.w3schools.com/js/js_callback.asp
+function handleSubmit(event){
+  event.preventDefault();
+
+  let locationName = event.target.locationName.value;
+  let minCust = +event.target.minCust.value;
+  let maxCust = +event.target.maxCust.value;
+  let avgCookie = +event.target.avgCookie.value;
+
+  let newLocation = new Store(locationName, minCust, maxCust, avgCookie);
+
+  //------------Remove footer, add new store, render footer------------
+  //https://www.w3schools.com/jsref/met_table_deleterow.asp
+  tableElem.deleteRow(-1);
+  newLocation.getCust();
+  newLocation.render();
+  tableFooter();
+}
+
+//------------Listener for submit btn------------
+locationForm.addEventListener('submit', handleSubmit);
+
+//------------Functions to render table------------
+function tableHeader(){
+  let row1 = document.createElement('tr');
+  tableElem.appendChild(row1);
+
+  let th1Elem = document.createElement('th');
+  th1Elem.textContent = ' ';
+  row1.appendChild(th1Elem);
+
+  for(let i = 0; i < hours.length; i++){
+    let th1Elem = document.createElement('th');
+    th1Elem.textContent += hours[i];
+    row1.appendChild(th1Elem);
+  }
+
+  let thTotal = document.createElement('th');
+  thTotal.textContent += 'Total';
+  row1.appendChild(thTotal);
+}
+
+function tableFooter(){
+  let totalArr = [];
+  for(let i = 0; i < hours.length; i++){
+    totalArr.push(0);
+  }
+  for(let i = 0; i < cookieLocations.length; i++){
+    let currentCity = cookieLocations[i];
+    for(let j = 0; j < currentCity.results.length; j++){
+      totalArr[j] += currentCity.results[j];
+    }
+  }
+
+  let totalTotal = 0;
+  for(let i = 0; i < totalArr.length; i++){
+    totalTotal += totalArr[i];
+  }
+  totalArr.push(totalTotal);
+
+  let lastRow = document.createElement('tr');
+  tableElem.appendChild(lastRow);
+
+  let rowFooter = document.createElement('th');
+  rowFooter.textContent = 'Totals';
+  lastRow.appendChild(rowFooter);
+  for(let i = 0; i < totalArr.length; i++){
+    let newTotal = document.createElement('td');
+    newTotal.textContent = totalArr[i];
+    lastRow.appendChild(newTotal);
+
+  }
+}
+
+function renderAllStores(){
+  for(let i = 0; i < cookieLocations.length; i++){
+    cookieLocations[i].getCust();
+    cookieLocations[i].render();
+  }
+}
+
+//------------Calling functions to render table------------
+tableHeader();
+renderAllStores();
+tableFooter();

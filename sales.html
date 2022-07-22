@@ -31,36 +31,28 @@
           </ul>
         </div>
       </nav>
-  </header>
-    <div class="main">
-      <div class="mainContainer">
-        <div class="mainContent">
-          <h1>Franchise Cookie Sale Data</h1>
-          <section>
-            <table id="table"></table>
-          </section>
-        </div>
+  </header>  
+    <main>
+      <h1>Franchise Cookie Sale Data</h1>
+        <section>
+          <table id="table"></table>
+        </section>
         <form id="my-form">
-          <fieldset>
-            <legend>Open a new Franchise</legend>
-            <label for="locationName">New Location</label>
-            <input id="locationName" type="text" name="locationName">
-            </fieldset> 
-            <fieldset>  
+          <fieldset>  
+              <legend>Open a new Franchise</legend>
+              <label for="locationName">Franchise Location</label>
+              <input id="locationName" type="text" name="locationName" required>
               <label for="minCust">Min Customers</label>
-              <input id="minCust" type="number" name="minCust">
-    
+              <input id="minCust" type="number" name="minCust" required>
+
               <label for="maxCust">Max Customers</label>
-              <input id="maxCust" type="number" name="maxCust">
+              <input id="maxCust" type="number" name="maxCust" required>
 
               <label for="avgCookie">Avg Cookie per Customer</label>
-              <input id="avgCookie" type="number" name="avgCookie">
+              <input id="avgCookie" type="number" name="avgCookie" required>
+              <button type="submit">Submit</button>
             </fieldset>
-            </label>
-          </fieldset>
-          <button type="submit">Submit</button>
         </form>
-  <main>
   </main>
   <footer></footer>
   <script src="js/app.js"></script>
