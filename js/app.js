@@ -35,7 +35,7 @@ function Store(location, minCust, maxCust, avgCookie){
   this.avgCookie = avgCookie;
   this.customers = 0;
   this.results = [];
-  
+
   cookieLocations.push(this);
 }
 
