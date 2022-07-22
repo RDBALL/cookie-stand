@@ -160,6 +160,7 @@ fieldset {
 
 fieldset input {
   font-size: 2rem;
+  margin-top: 1.5rem;
 }
 
 fieldset label {
